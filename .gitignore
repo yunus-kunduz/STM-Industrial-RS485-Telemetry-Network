@@ -1,0 +1,37 @@
+# STM32 Projeleri için Profesyonel .gitignore
+
+# Derleme Klasörleri (Build Artifacts)
+Debug/
+Release/
+bin/
+obj/
+
+# Derleyici Çıktıları
+*.elf
+*.hex
+*.bin
+*.map
+*.list
+*.o
+*.d
+*.su
+
+# IDE (STM32CubeIDE / Eclipse) Özel Dosyaları
+.settings/
+.launches/
+.metadata/
+*.bak
+*.itm
+*.svd
+
+# Küp Yapılandırma Yedekleri
+*.tmp
+*.bak
+MX_Backup/
+
+# İşletim Sistemi Geçici Dosyaları
+Thumbs.db
+.DS_Store
+
+# Log Dosyaları
+*.log
