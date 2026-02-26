@@ -30,9 +30,7 @@ The implementation focuses on signal integrity, power regulation, and hardware-l
 ```mermaid
 flowchart LR
 
-%% =====================================================
-%% POWER DISTRIBUTION
-%% =====================================================
+%% ================= POWER =================
 
 NUCLEO_5V --> AMS1117_5V_IN
 AMS1117_5V_OUT --> SHARED_5V
@@ -40,7 +38,7 @@ AMS1117_5V_OUT --> SHARED_5V
 SHARED_5V --> AMS1117_3V3_IN
 AMS1117_3V3_OUT --> CLEAN_3V3
 
-SHARED_GND((COMMON GND))
+SHARED_GND((COMMON_GND))
 
 NUCLEO_GND --> SHARED_GND
 BLUEPILL_GND --> SHARED_GND
@@ -60,18 +58,14 @@ SHARED_5V --> BLUEPILL_5V
 CLEAN_3V3 --> BLUEPILL_3V3
 CLEAN_3V3 --> LEVEL_LV
 
-%% =====================================================
-%% BMP180 I2C CONNECTION
-%% =====================================================
+%% ================= BMP180 =================
 
 BMP180_GND --> NUCLEO_GND
 BMP180_VIN --> NUCLEO_3V3
 BMP180_SDA --> NUCLEO_PB7
 BMP180_SCL --> NUCLEO_PB6
 
-%% =====================================================
-%% NUCLEO SIDE (WITH LEVEL SHIFTER)
-%% =====================================================
+%% ================= NUCLEO + LEVEL =================
 
 NUCLEO_D8 --> LEVEL_LV1
 NUCLEO_D2 --> LEVEL_LV2
@@ -82,19 +76,15 @@ LEVEL_HV2 --> RS485_TTL1_RO
 LEVEL_HV3 --> RS485_TTL1_DE
 LEVEL_HV3 --> RS485_TTL1_RE
 
-%% =====================================================
-%% BLUEPILL SIDE (DIRECT RS485)
-%% =====================================================
+%% ================= BLUEPILL =================
 
 BLUEPILL_A8 --> RS485_TTL2_DE
 BLUEPILL_A8 --> RS485_TTL2_RE
 BLUEPILL_A9 --> RS485_TTL2_DI
 BLUEPILL_A10 --> RS485_TTL2_RO
-BLUEPILL_PC13 --> GREEN_LED((STATUS LED))
+BLUEPILL_PC13 --> STATUS_LED((STATUS_LED))
 
-%% =====================================================
-%% RS485 BUS TOPOLOGY
-%% =====================================================
+%% ================= RS485 BUS =================
 
 RS485_TTL1_A --> BUS_A
 RS485_TTL2_A --> BUS_A
@@ -104,18 +94,14 @@ RS485_TTL1_B --> BUS_B
 RS485_TTL2_B --> BUS_B
 RS485_USB_B --> BUS_B
 
-%% 120Ω TERMINATION (ONLY AT PHYSICAL ENDS OF BUS)
-BUS_A -- 120Ω -- BUS_B
-BUS_A -- 120Ω -- BUS_B
+BUS_A -- 120_Ohm -- BUS_B
+BUS_A -- 120_Ohm -- BUS_B
 
-%% =====================================================
-%% LOGIC ANALYZER
-%% =====================================================
+%% ================= LOGIC ANALYZER =================
 
 LOGIC_ANALYZER_CH1 --> NUCLEO_D8
 LOGIC_ANALYZER_CH2 --> NUCLEO_D2
 LOGIC_ANALYZER_CH3 --> NUCLEO_D7
-
 ```
 
 ---
