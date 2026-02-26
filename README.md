@@ -94,8 +94,14 @@ RS485_TTL1_B --> BUS_B
 RS485_TTL2_B --> BUS_B
 RS485_USB_B --> BUS_B
 
-BUS_A -- 120_Ohm -- BUS_B
-BUS_A -- 120_Ohm -- BUS_B
+TERM1((120_Ohm))
+TERM2((120_Ohm))
+
+BUS_A --- TERM1
+TERM1 --- BUS_B
+
+BUS_A --- TERM2
+TERM2 --- BUS_B
 
 %% ================= LOGIC ANALYZER =================
 
