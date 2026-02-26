@@ -28,7 +28,7 @@ The implementation focuses on signal integrity, power regulation, and hardware-l
 ## 🔌 Complete Wiring Diagram
 
 ```mermaid
-> **[flowchart LR
+flowchart LR
 
 %% =====================================================
 %% POWER DISTRIBUTION
